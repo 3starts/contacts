@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="3startの公式ホームページです。メンバー情報や、3startの詳細について載っています。">
-    <title>3start | ホーム</title>
+    <title>3start | お問い合わせ</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -91,6 +91,61 @@
             font-size: 30px;
             padding-bottom: 20px;
         }
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .contact-form label {
+            display: block;
+            margin: 15px 0 5px;
+            font-size: 16px;
+            color: #333;
+        }
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 98%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .contact-form textarea {
+            resize: none;
+            height: 250px;
+        }
+        .contact-form input[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .contact-form input[type="submit"]:hover {
+            background-color: #575757;
+        }
+        .contact-form .radio-group {
+            margin: 15px 0;
+        }
+        .contact-form .radio-group label {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .contact-form .radio-group input[type="radio"] {
+            margin-right: 5px;
+        }
     </style>
 </head>
 <body>
@@ -107,8 +162,27 @@
         <a href="https://3starts.github.io/contacts">コンタクト</a>
     </nav>
     <div class="main-display">
-        <p class="main-about-title">公開準備中</p>
-        <p class="main-about-text">現在、公開を準備しております。準備が出来次第<a href="https://x.com/3start_official">公式X</a>でお知らせしますので、もうしばらくお待ちください。</p>
+        <p class="main-about-title">お問い合わせ</p>
+        <div class="contact-form">
+            <form action="contacts-process.php" method="POST">
+                <label for="name">名前</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">メールアドレス</label>
+                <input type="email" id="email" name="email" required>
+
+                <div class="radio-group">
+                    <label>お問い合わせ種別:</label>
+                    <label><input type="radio" name="type" value="個人" required> 個人</label>
+                    <label><input type="radio" name="type" value="企業"> 企業</label>
+                </div>
+                
+                <label for="message">メッセージ</label>
+                <textarea id="message" name="message" required></textarea>
+                
+                <input type="submit" value="送信">
+            </form>
+        </div>
     </div>
     <script>
         window.addEventListener('load', function() {
